@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { MdEdit } from 'react-icons/md';
+import { MdEdit, MdDelete } from 'react-icons/md'
 
 /**
  * functional react component for ...
@@ -9,7 +9,11 @@ import { MdEdit } from 'react-icons/md';
  * @returns {JSX.Element} - react component
  * @useIn - ./ExpenseList.js
  */
-function ExpenseItem({ expense }) {
+function ExpenseItem({
+  expense,
+  handleDelete,
+  handleEdit
+}) {
   const { id, charge, amount } = expense
   return (
     <li className="item">
@@ -18,11 +22,19 @@ function ExpenseItem({ expense }) {
         <span className="amount">${amount}</span>
       </div>
       <div>
-        <button className="edit-btn" aria-label="edit button">
+        <button
+          className="edit-btn"
+          aria-label="edit button"
+          onClick={() => handleEdit(id)}
+        >
           <MdEdit />
         </button>
-        <button className="cleat-btn" aria-label="delete button">
-          <MdEdit />
+        <button
+          className="cleat-btn"
+          aria-label="delete button"
+          onClick={() => handleDelete(id)}
+        >
+          <MdDelete />
         </button>
       </div>
     </li>

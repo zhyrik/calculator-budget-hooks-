@@ -11,16 +11,26 @@ import Item from './ExpanseItem'
  * @returns {JSX.Element} - react component
  * @useIn - ../App.js
  */
-function ExpenseList({ expenses }) {
+function ExpenseList({ 
+  expenses,
+  handleDelete,
+  handleEdit,
+  cleatItems
+}) {
   return (
     <>
       <ul className="list">
         {expenses.map(item => {
-          return <Item key={item.id} expense={item} />
+          return <Item
+            key={item.id}
+            expense={item}
+            handleDelete={handleDelete}
+            handleEdit={handleEdit}
+          />
         })}
       </ul>
       {expenses.length > 0 && (
-        <button className="btn">
+        <button className="btn" onClick={cleatItems}>
           cleat expenses
           <MdDelete className="btn-icon" />
         </button>

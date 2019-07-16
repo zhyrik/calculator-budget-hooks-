@@ -7,10 +7,10 @@ import React from 'react'
  * @returns {JSX.Element} - react component
  * @useIn - ./
  */
-function Alert() {
+function Alert({ type, text }) {
   return (
-    <div>
-      expense alert
+    <div className={`alert alert-${type}`}>
+      {text}
     </div>
   )
 }
